@@ -10,7 +10,7 @@
 	
 	    <link rel="stylesheet" href="./css/bootstrap.min.css">
        <link rel="stylesheet" href="./css/styles.css">
-	  <link rel="shortcut icon" href="./img/codoacodo-min.png" type="image/x-icon">
+	  <link rel="shortcut icon" href="./assets/img/codoacodo-min.png" type="image/x-icon">
 	
 	  <title>Trabajo Integrador</title>
 		<style>
@@ -25,11 +25,13 @@
 		    }
 		    header{
 		        grid-area: header;
+		       
 		    }
 		    main{
 		        grid-area: main;
 		        overflow: auto;
-		    }
+		        margin-top:10vh;
+				
 		    footer{
 		        grid-area: footer;
 		      
@@ -38,57 +40,30 @@
 	</head>
 	<body>
 	
-		<header>
-		    <nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-lg">
-		        <div class="container">
-		            <a class="navbar-brand" href="index.html">
-		                <img src="img/codoacodo-min.png" alt="Codo a Codo logo">
-		                Conf Bs As
-		            </a>
-		            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-		                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-		                aria-label="Toggle navigation">
-		                <span class="navbar-toggler-icon"></span>
-		            </button>
-		            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-		                <ul class="navbar-nav mb-2 mb-lg-0">
-		                    <li class="nav-item">
-		                        <a class="nav-link active" aria-current="page" href="./index.jsp">La conferencia</a>
-		                    </li>
-		                    <li class="nav-item">
-		                        <a class="nav-link" href="./index.jsp#oradores">Los oradores</a>
-		                    </li>
-		                    <li class="nav-item">
-		                        <a class="nav-link" href="./index.jsp#lugar">El lugar y la fecha</a>
-		                    </li>
-		                    <li class="nav-item">
-		                        <a class="nav-link" href="./index.jsp#form-orador">Conviértete en orador</a>
-		                    </li>
-		                    <li class="nav-item">
-		                        <a class="nav-link btn-compra-tickets" href="tickets.jsp">Comprar tickets</a>
-		                    </li>
-		                     <li class="nav-item">
-                                <a class="nav-link" href="login.jsp">LogIn</a>
-                             </li>
-		                </ul>
-		            </div>
-		        </div>
-		    </nav>
-		</header>
+				<!-- aca va el header.jsp -->
+		 <jsp:include page="header.jsp"/>
 		
 		<main>
-			<section class="mt-5">
-		        <h3 class="text-center">Encontra tus oradores favoritos por sus temas</h3>
+		<section class="mt-7">
+		        <h3 class=" mt-4 fs-3 fw-bolder text-center">Encontra tus oradores favoritos por sus temas</h3>
+		       
 		        <form class="d-flex" action="<%=request.getContextPath()%>/BuscarOradorTemaController" method="post">
-		            <input class="form-control me-2" name="temabuscar" id="temabuscar" type="search" placeholder="Escribi un tema" aria-label="Buscar">
-		            <input class="btn btn-outline-success" type="submit" value="Buscar">
+		       
+		       
+		       <div class=" w-100 d-flex flex-row justify-content-center">
+		        <div class=" h-50 w-75 ">
+		            <input class="form-control me-2 input-reducido w-100" name="temabuscar" id="temabuscar" type="search" placeholder="Escribi un tema" aria-label="Buscar">
+		           </div>
+		            <input class="btn btn-outline-success greenBtn colorWhite" type="submit" value="Buscar">
+		         </div>
 		        </form>
+		      
 	        </section>
 			<section class="container mt-5 mb-4" id="restoOradores">
-		        <h3 class="text-center">Conoce todos los oradores que se presentan</h2>
+		        <h3 class="text-center fw-bolder fs-3 ">Conoce todos los oradores que se presentan</h2>
 		      
 		        <div class="row">
-		            <table class="table">
+		            <table class="table"> 
 		                <thead>
 		                  <tr>
 		                    <th scope="col">#</th>
@@ -113,7 +88,7 @@
 		                    <th scope="row"><%=unOrador.getId()%></th>
 		                    <td><%=unOrador.getNombre() %></td>
 		                    <td><%=unOrador.getApellido() %></td>
-		                    <td><%=unOrador.getTema() %></td>
+		                    <td><%=unOrador.getTema() %></td>     
 		                    <td><a class="btn btn-info" role="button" href="<%=request.getContextPath()%>/UpdateOradorController?id=<%=unOrador.getId()%>">
 							       Editar
 							    </a> | 
@@ -156,38 +131,18 @@
 		  </div>
 		</div>
 		
-		<footer id="main-footer">
-		    <div class="container">
-		        <ul class="nav justify-content-center justify-content-lg-between align-items-center">
-		            <li class="nav-item">
-		                <a class="nav-link" href="#">Preguntas <span>frecuentes</span></a>
-		            </li>
-		            <li class="nav-item">
-		                <a class="nav-link" href="#">Contáctanos</a>
-		            </li>
-		            <li class="nav-item">
-		                <a class="nav-link" href="#">Prensa</a>
-		            </li>
-		            <li class="nav-item">
-		                <a class="nav-link" href="#">Conferencias</a>
-		            </li>
-		            <li class="nav-item">
-		                <a class="nav-link" href="#">Términos y <span>condiciones</span></a>
-		            </li>
-		            <li class="nav-item">
-		                <a class="nav-link" href="#">Privacidad</a>
-		            </li>
-		            <li class="nav-item">
-		                <a class="nav-link" href="#">Estudiantes</a>
-		            </li>
-		        </ul>
-		    </div>
-		</footer>
+		    
+    <!-- aca va el footer.jsp -->
+		 <jsp:include page="footer.jsp"/>
 		
-		 <script src="js/bootstrap.bundle.min.js"></script>
-			function setOradorId(id) {
-				document.getElementById('idOrador').value=id;
-			}
-	  </script>
+		 	 <script src="js/bootstrap.bundle.min.js"></script>
+		 	 <script>
+   		 		function setOradorId(id) {
+       			 document.getElementById('idOrador').value = id;
+    				}
+			</script>
+		 	 
+			
+	 
 	</body>
 </html>

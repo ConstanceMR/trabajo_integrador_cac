@@ -25,8 +25,8 @@ public class LoginAdminController  extends HttpServlet {
 		//capturo los parametros que viene en el request enviado por el form
 		String nombre= req.getParameter("nombre");//name de input
 		String password = req.getParameter("password");
-	    String nombreGuardado = "admin";
-		String passwordGuardado = "cac";
+	    String nombreGuardado = "grupo1";
+		String passwordGuardado = "23552";
 		if(nombre == null || "".equals(nombre)) {
 			//ahora redirect!!!!
 			getServletContext().getRequestDispatcher("/FindAllOradorController").forward(req, resp);

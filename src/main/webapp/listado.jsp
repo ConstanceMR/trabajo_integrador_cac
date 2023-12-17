@@ -29,6 +29,7 @@
 		    main{
 		        grid-area: main;
 		        overflow: auto;
+		        padding-top: 15vh;
 		    }
 		    footer{
 		        grid-area: footer;
@@ -38,11 +39,28 @@
 	</head>
 	<body>
 	
-		
+				<!-- aca va el header.jsp -->
+		 <jsp:include page="header.jsp"/>
 		
 		<main class="mt-20">
+		
+			<section class="mt-7">
+		        <h3 class=" mt-4 fs-3 fw-bolder text-center">Encontra tus oradores favoritos por sus temas</h3>
+		       
+		        <form class="d-flex" action="<%=request.getContextPath()%>/BuscarOradorTemaController" method="post">
+		       
+		       
+		       <div class=" w-100 d-flex flex-row justify-content-center">
+		        <div class=" h-50 w-75  ">
+		            <input class="form-control me-2 input-reducido w-100" name="temabuscar" id="temabuscar" type="search" placeholder="Escribi un tema" aria-label="Buscar">
+		           </div>
+		            <input class="btn btn-outline-success greenBtn colorWhite" type="submit" value="Buscar">
+		         </div>
+		        </form>
+		      
+	        </section>
 			<section class="container mt-5 mb-4" id="restoOradores">
-		        <h2 class="titulo-gral">Conoce todos los oradores que se presentan</h2>
+		        <h2 class="titulo-gral fs-3 text-center">Conoce todos los oradores que se presentan</h2>
 		      
 		        <div class="row">
 		            <table class="table">
@@ -63,8 +81,7 @@
 		                 // verifico si esta vacio o null listado, eso quiere decir que NO HAY ORADORES, 
 		                 // si no hay oradores entonces mostrar un msj con un h3 que diga NO HAY ORADORES PARA EL TEMA BUSCADO
 		                 //ELSE sino, que muestre el tbody y haga el for 
-					 	 %>
-					 	 
+					 	 %>				 	
 		                <tbody>
 			                 <!-- ESTO SE REPITE TANTA CANDTIDAD DE VECES COMO ARTICULOS TENGA -->
 						   <%

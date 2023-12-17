@@ -29,6 +29,8 @@
 		    main{
 		        grid-area: main;
 		        overflow: auto;
+		        padding-top: 10vh;
+		       
 		    }
 		    footer{
 		        grid-area: footer;
@@ -36,67 +38,37 @@
 		    }
 		  </style>
 	</head>
-	<body>
+
 	
-		<header>
-		    <nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-lg">
-		        <div class="container">
-		            <a class="navbar-brand" href="index.jsp">
-		                <img src="assets/img/codoacodo-min.png" alt="Codo a Codo logo">
-		                Conf Bs As
-		            </a>
-		            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-		                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-		                aria-label="Toggle navigation">
-		                <span class="navbar-toggler-icon"></span>
-		            </button>
-		            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-		                <ul class="navbar-nav mb-2 mb-lg-0">
-		                    <li class="nav-item">
-		                        <a class="nav-link active" aria-current="page" href="./index.jsp">La conferencia</a>
-		                    </li>
-		                    <li class="nav-item">
-		                        <a class="nav-link" href="./index.jsp#oradores">Los oradores</a>
-		                    </li>
-		                    <li class="nav-item">
-		                        <a class="nav-link" href="./index.jsp#lugar">El lugar y la fecha</a>
-		                    </li>
-		                    <li class="nav-item">
-		                        <a class="nav-link" href="./index.jsp#form-orador">Conviértete en orador</a>
-		                    </li>
-		                    <li class="nav-item">
-		                        <a class="nav-link btn-compra-tickets" href="tickets.jsp">Comprar tickets</a>
-		                    </li>
-		                     <li class="nav-item">
-                        		<a class="nav-link" href="login.jsp">LogIn</a>
-                    		</li>
-		                </ul>
-		            </div>
-		        </div>
-		    </nav>
-		</header>
+		<!-- aca va el header.jsp -->
+		 <jsp:include page="header.jsp"/>
 		
 		<main class="d-flex justify-content-center align-items-center">
-		 <section class="mt-5 container" id="form-orador">
-		        <div class="row justify-content-center">
+		 <section class="mt-1 container" id="form-orador">
+		        <div class="row justify-content-center align-items-center">
 		            <div class="col-lg-8 col-xl-7">
-		                <h2 class="titulo-gral mb-3">LogIn</h2>
+		                <h2 class="titulo-gral mb-5 text-center fs-1">LogIn</h2>
 		                
-		                <form action="<%=request.getContextPath()%>/LoginAdminController" method="POST">
+		                <form action="<%=request.getContextPath()%>/LoginAdminController" method="post">
 		                    <div class="row justify-content-center">
 		                        <div class="col-8 mb-3 mb-4">
-		                            <input type="text" class="form-control" name="nombre" placeholder="Usuario" aria-label="Nombre" required>
+		                            <input type="text" class="form-control p-3" name="nombre" placeholder="Usuario" aria-label="Nombre" required>
 		                            
 		                        </div>
 		                         <div class="col-8 mb-3 mb-4">
-		                           <input type="password" class="form-control" name="password" placeholder="Contraseña" aria-label="Password" required>
+		                           <input type="password" class="form-control p-3" name="password" placeholder="Contraseña" aria-label="Password" required>
 		                         </div>
 		                    </div>
 		                    <div class="row justify-content-center">
 		                        <div class="col-8 mb-3">
 		                            <div class="d-grid">
-		                                <button type="submit" class="btn btn-lg btn-form">LogIn</button>
+		                                <button type="submit" class="btn btn-lg btn-form greenBtn colorWhite">LogIn</button>
 		                            </div>
+		                            <div class=" mt-5">
+		                            	<h3>usuario: grupo1</h3>
+		                            	<h3>contraseña: 23552</h3>
+		                            </div>
+		                           
 		                        </div>
 		                    </div>
 		                </form>
@@ -106,7 +78,7 @@
 		
 		</main>
 		
-			<!-- aca va el header.jsp -->
+			<!-- aca va el footer.jsp -->
 		<jsp:include page="footer.jsp"/>
 		
 		

@@ -17,10 +17,61 @@
 
 
 <body>
-<!-- aca va el header.jsp -->
-		 <jsp:include page="header.jsp"/>
+    <header class="header"> 
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid justify-content-between">
+                <a href="#" class="col-8 col-md-6 col-lg-4 col-xl-3 d-flex align-items-center">
+                    <img src="./assets/img/logo_cac.png" alt="Logo de Codo a Codo 4.0" class="imgLogo" loading="lazy" />
+                    <h2 class="colorWhite fs-1">Conf Bs As</h2>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation" class="col-4">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 w-100 justify-content-end flex-wrap align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link active fs-3 p-3" aria-current="page" href="#conference">La conferencia</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-3 p-3" href="#speakers">Los oradores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-3 p-3" href="#placeAndDate">El lugar y la fecha</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link fs-3 p-3" href="#speakerForm">Conviértete en orador</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link colorGreen fs-3 p-3" href="tickets.jsp">Comprar tickets</a>                  
+                        </li>
+                         <li class="nav-item">
+                        <a class="nav-link fs-2 p-3" href="login.jsp">LogIn</a>
+                    </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <section id="conference" class="d-flex align-items-center py-3">
+            <div class="conference__content d-flex flex-column justify-content-center align-items-center align-items-lg-end text-center text-lg-end col-lg-6 offset-lg-6">
+                <h1 class="p-3 mb-3">Conf Bs As</h1>
+                <p class="mb-5">Bs As llega por primera vez a Argentina. Un evento para compartir con nuestra comunidad el conocimiento y
+                    experiencia de los expertos que están creando el futuro de Internet. Ven a conocer a miembros del
+                    evento, a otros estudiantes de Codo a Codo y los oradores de primer nivel que tenemos para ti. ¡Te
+                    esperamos!</p>
+                <div class="d-flex justify-content-evenly w-100 justify-content-lg-end gap-lg-4">
+                    <a href="#speakerForm" class="buttons transparentBtn">Quiero ser orador</a>
+                    <a href="tickets.jsp" class="buttons greenBtn">Comprar tickets</a>
+                </div>
+            </div>
+        </section>
+    </header>
+
 
  <main>
+ 
+ 
         <section id="speakers" class="container">
             <h2 class="text-center">
                 <div>CONOCE A LOS</div>ORADORES
@@ -86,19 +137,27 @@
         </section>
         <section id="speakerForm" class="text-center col-lg-6 offset-lg-3">
             <h2 class="speakerForm__h2"><div>CONVIÉRTETE EN UN</div>ORADOR</h2>
-            <p>Anótate como orador para dar una <span>charla ignate</span>. ¡Cuéntanos de qué quieres hablar!</p>
+            <p class="fs-3">Anótate como orador para dar una <span class="fs-3">charla ignate</span>. ¡Cuéntanos de qué quieres hablar!</p>
             
              <form action="<%=request.getContextPath()%>/CreateOradorController" method="POST">
 		                   
             
-            <form action="" class="speakerForm__form text-start">
-                <div class="d-flex flex-column flex-lg-row gap-lg-5">
-                    <input type="text" id="nombre" name="nombre" placeholder="Nombre" class="my-3 w-100 p-3">
-                    <input type="text" id="apellido" name="apellido" placeholder="Apellido" class="my-3 w-100 p-3">
+            <div class="speakerForm__form text-start">
+                <div class="d-flex flex-column flex-lg-row gap-lg-5 w-100">
+                    <input  class="my-2 w-100 p-3" type="text" id="nombre" name="nombre" placeholder="Nombre" aria-label="Nombre" required>
+                    <input class="my-2 w-100 p-3" type="text" id="apellido" name="apellido" placeholder="Apellido" aria-label="Apellido" required">
                 </div>
-                <textarea name="" id="" class="w-100 mt-3">Sobre qué quieres hablar?</textarea>
+                <div class="col mt-2 mb-4">
+		            <input type="email" class="form-control p-3" name="mail" placeholder="Email" aria-label="Email" required>
+		        </div>
+                
+                
+                 <textarea class="form-control mt-3" name="tema" id="exampleFormControlTextarea1" rows="4"
+		                                placeholder="Sobre qué quieres hablar?" required></textarea>
                 <p>Recuerda incluir un título para tu charla</p>
-                <input type="submit" value="Enviar" class="w-100 buttons speakerForm__form__btn mt-3">
+                <button type="submit" class="btn btn-lg btn-form w-100 buttons speakerForm__form__btn mt-3 p-3">Enviar</button>
+                
+                </div>
             </form>
         </section>
     </main>

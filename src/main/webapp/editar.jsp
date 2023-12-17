@@ -28,10 +28,12 @@
 		    }
 		    header{
 		        grid-area: header;
+		        
 		    }
 		    main{
 		        grid-area: main;
 		        overflow: auto;
+		        padding-top: 10vh;
 		    }
 		    footer{
 		        grid-area: footer;
@@ -40,56 +42,20 @@
 		  </style>
 	</head>
 	<body>
-	
-		<header>
-		    <nav class="navbar navbar-dark bg-dark fixed-top navbar-expand-lg">
-		        <div class="container">
-		            <a class="navbar-brand" href="index.jsp">
-		                <img src="img/codoacodo-min.png" alt="Codo a Codo logo">
-		                Conf Bs As
-		            </a>
-		            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-		                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-		                aria-label="Toggle navigation">
-		                <span class="navbar-toggler-icon"></span>
-		            </button>
-		            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
-		                <ul class="navbar-nav mb-2 mb-lg-0">
-		                    <li class="nav-item">
-		                        <a class="nav-link active" aria-current="page" href="./index.jsp">La conferencia</a>
-		                    </li>
-		                    <li class="nav-item">
-		                        <a class="nav-link" href="./index.jsp#oradores">Los oradores</a>
-		                    </li>
-		                    <li class="nav-item">
-		                        <a class="nav-link" href="./index.jsp#lugar">El lugar y la fecha</a>
-		                    </li>
-		                    <li class="nav-item">
-		                        <a class="nav-link" href="./index.jsp#form-orador">Conviértete en orador</a>
-		                    </li>
-		                    <li class="nav-item">
-		                        <a class="nav-link btn-compra-tickets" href="tickets.jsp">Comprar tickets</a>
-		                    </li>
-		                     <li class="nav-item">
-                        		<a class="nav-link" href="login.jsp">LogIn</a>
-                    		</li>
-		                </ul>
-		            </div>
-		        </div>
-		    </nav>
-		</header>
+				<!-- aca va el header.jsp -->
+		 <jsp:include page="header.jsp"/>
 		
 		<main class="mb-5">
           <section class="container mt-5" id="form-orador">
-		        <div class="row justify-content-center">
+		        <div class="row justify-content-center mt-5">
 		            <div class="col-lg-8 col-xl-7">
-		                <h2 class="titulo-gral">Modificar datos del Orador</h2>
+		                <h2 class="titulo-gral text-center mt-5 mb-5 fs-1">Modificar datos del Orador</h2>
 		               
 		                <form action="<%=request.getContextPath()%>/UpdateOradorController" method="POST">
 		                    <div class="row gx-2">
 		                        <div class="col-md mb-3">
-		                            <input type="hidden" name="id" value="<%=orador.getId()%>">
-		                            <input type="text" class="form-control" 
+		                            <input type="hidden"  name="id" value="<%=orador.getId()%>">
+		                            <input type="text" class="form-control p-3"
 		                             name="nombre" 
 		                             placeholder="Nombre" 
 		                             aria-label="Nombre"
@@ -98,28 +64,28 @@
 		                             required>
 		                        </div>
 		                        <div class="col-md mb-3">
-		                            <input type="text" class="form-control" name="apellido" placeholder="Apellido" aria-label="Apellido"
+		                            <input type="text" class="form-control p-3" name="apellido" placeholder="Apellido" aria-label="Apellido"
 		                             value="<%=orador.getApellido()%>" 
 		                             required>
 		                        </div>
 		                    </div>
 		                    <div class="row">
 		                        <div class="col mb-3">
-		                            <input type="email" class="form-control" name="mail" placeholder="Email" aria-label="Email"
+		                            <input type="email" class="form-control p-3" name="mail" placeholder="Email" aria-label="Email"
 		                            value="<%=orador.getMail()%>"  
 		                            required>
 		                        </div>
 		                    </div>
 		                    <div class="row">
 		                        <div class="col mb-3">
-		                            <textarea class="form-control" name="tema" id="exampleFormControlTextarea1" rows="4"
+		                            <textarea class="form-control p-3" name="tema" id="exampleFormControlTextarea1" rows="4"
 		                              
 		                                placeholder="<%=orador.getTema()%>" 
 		                                
 		                                required><%=orador.getTema()%> </textarea>
 		                            <div id="emailHelp" class="form-text mb-3">Recuerda incluir un título para tu charla.</div>
 		                            <div class="d-grid">
-		                                <button type="submit" class="btn btn-lg btn-form">Modificar</button>
+		                                <button type="submit" class="btn btn-lg btn-form greenBtn colorWhite p-3">Modificar</button>
 		                            </div>
 		                        </div>
 		                    </div>
@@ -130,33 +96,8 @@
 		
 		</main>
 		
-		<footer id="main-footer">
-		    <div class="container">
-		        <ul class="nav justify-content-center justify-content-lg-between align-items-center">
-		            <li class="nav-item">
-		                <a class="nav-link" href="#">Preguntas <span>frecuentes</span></a>
-		            </li>
-		            <li class="nav-item">
-		                <a class="nav-link" href="#">Contáctanos</a>
-		            </li>
-		            <li class="nav-item">
-		                <a class="nav-link" href="#">Prensa</a>
-		            </li>
-		            <li class="nav-item">
-		                <a class="nav-link" href="#">Conferencias</a>
-		            </li>
-		            <li class="nav-item">
-		                <a class="nav-link" href="#">Términos y <span>condiciones</span></a>
-		            </li>
-		            <li class="nav-item">
-		                <a class="nav-link" href="#">Privacidad</a>
-		            </li>
-		            <li class="nav-item">
-		                <a class="nav-link" href="#">Estudiantes</a>
-		            </li>
-		        </ul>
-		    </div>
-		</footer>
+		   <!-- aca va el footer.jsp -->
+		 <jsp:include page="footer.jsp"/>
 		
 		
 		 <script src="js/bootstrap.bundle.min.js"></script>

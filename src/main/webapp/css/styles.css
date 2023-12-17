@@ -251,6 +251,14 @@ p{
     font-size: 1.8rem;
     color: white;
 }
+.input-reducido {
+    width: 25%;
+}
+.margin-center{
+	margin: 0 auto;
+}
+
+
 @media screen and (min-width: 992px){
     .header .navbar{
         padding: 0 100px;
@@ -301,4 +309,5 @@ p{
     .mainError404 .img-error404{
         width: 400px;
     }
+  
 }

@@ -30,7 +30,7 @@ public class DeleteOradorController extends HttpServlet{
 		} catch (Exception e) {
 			e.printStackTrace();
 			//mensaje de error
-			req.setAttribute("erorrs", List.of("NO se he eliminado el orador :" + e.getMessage()));
+			req.setAttribute("errors", List.of("NO se he eliminado el orador :" + e.getMessage()));
 		}//ctrl+t
 		
 		//ahora redirect!!!!
